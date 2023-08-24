@@ -1,9 +1,9 @@
-package com.mfcc.digi.data.controllers;
+package com.mfcc.poke.data.controllers;
 
-import com.mfcc.digi.data.client.PokemonClientApi;
-import com.mfcc.digi.data.model.Pokemon;
-import com.mfcc.digi.data.model.PokemonType;
-import com.mfcc.digi.data.model.ResultPokemon;
+import com.mfcc.poke.data.client.PokemonClientApi;
+import com.mfcc.poke.data.model.Pokemon;
+import com.mfcc.poke.data.model.PokemonType;
+import com.mfcc.poke.data.model.ResultPokemon;
 
 import java.util.ArrayList;
 import java.util.List;

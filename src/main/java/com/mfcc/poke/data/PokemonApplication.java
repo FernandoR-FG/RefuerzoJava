@@ -1,8 +1,8 @@
-package com.mfcc.digi.data;
+package com.mfcc.poke.data;
 
-import com.mfcc.digi.data.client.PokemonClientApi;
-import com.mfcc.digi.data.controllers.GenerateDataPokemon;
-import com.mfcc.digi.data.model.Pokemon;
+import com.mfcc.poke.data.client.PokemonClientApi;
+import com.mfcc.poke.data.controllers.GenerateDataPokemon;
+import com.mfcc.poke.data.model.Pokemon;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.mfcc.digi.data.model;
+package com.mfcc.poke.data.model;
 
 import lombok.Builder;
 import lombok.Getter;
