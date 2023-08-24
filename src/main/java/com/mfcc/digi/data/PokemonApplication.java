@@ -1,8 +1,8 @@
 package com.mfcc.digi.data;
 
-import com.mfcc.digi.data.client.DigimonClientApi;
-import com.mfcc.digi.data.controllers.GenerateData;
-import com.mfcc.digi.data.model.Digimon;
+import com.mfcc.digi.data.client.PokemonClientApi;
+import com.mfcc.digi.data.controllers.GenerateDataPokemon;
+import com.mfcc.digi.data.model.Pokemon;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,14 +13,23 @@ import org.springframework.context.annotation.Bean;
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
-public class DigimonApplication {
+public class PokemonApplication {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(DigimonApplication.class, args);
+        SpringApplication.run(PokemonApplication.class, args);
     }
 
     @Bean
+    public CommandLineRunner run(PokemonClientApi pokemonClientApi) {
+        return args -> {
+            Pokemon pokemonInfo = pokemonClientApi.getDataPokemon("bulbasaur");
+            GenerateDataPokemon data = new GenerateDataPokemon(pokemonInfo, pokemonClientApi);
+            data.getInformationPokemon();
+
+        };
+    }
+    /*
     public CommandLineRunner run(DigimonClientApi digimonClientApi) {
         return args -> {
             Digimon digimonInfo = digimonClientApi.getDigimonInfo("Garummon");
@@ -29,5 +38,5 @@ public class DigimonApplication {
 
         };
     }
-
+    */
 }
