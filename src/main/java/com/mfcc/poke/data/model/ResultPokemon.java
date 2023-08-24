@@ -21,12 +21,14 @@ public class ResultPokemon {
                     "\nHeight: " + height + " m" +
                     "\nWeight: " + weight + " kg" +
                     "\nType: " + type +
-                    "\nWeaknesses: " + "--------"+
+                    "\nWeaknesses: " + type.get(0)+
                     "\nBase Point: " + ' '+
-                    "\n\t\thp: " + "--------"+
-                    "\n\t\tattack: " + "--------"+
-                    "\n\t\tspecial-defense: " + "--------"+
-                    "\n\t\tspeed: " + "--------";
+                    "\n\t\tHp: " + stats.get(0)+
+                    "\n\t\tAttack: " +  stats.get(1)+
+                    "\n\t\tDefense: " + stats.get(2)+
+                    "\n\t\tSpecial attack: " + stats.get(3)+
+                    "\n\t\tSpecial defense: " + stats.get(4)+
+                    "\n\t\tspeed: " + stats.get(5);
 
         }
     }

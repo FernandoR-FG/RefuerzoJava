@@ -32,14 +32,23 @@ public class Pokemon {
     private int height;
     private int weight;
     private List<Types> types;
+    private List<Stats> stats;
     private List<BasePoint> basePoints;
 
     @Builder
     @Getter
     public static class Types{
         private int slot;
-        private PokemonType typesList;
+        private PokemonType type;
     }
+    @Builder
+    @Getter
+    public static class Stats{
+        private String base_stat;
+        private int effort;
+        private PokemonStats stat;
+    }
+
 
     @Builder
     @Getter

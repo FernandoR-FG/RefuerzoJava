@@ -23,7 +23,7 @@ public class PokemonApplication {
     @Bean
     public CommandLineRunner run(PokemonClientApi pokemonClientApi) {
         return args -> {
-            Pokemon pokemonInfo = pokemonClientApi.getDataPokemon("bulbasaur");
+            Pokemon pokemonInfo = pokemonClientApi.getDataPokemon("magikarp");
             GenerateDataPokemon data = new GenerateDataPokemon(pokemonInfo, pokemonClientApi);
             data.getInformationPokemon();
 
