@@ -2,10 +2,7 @@ package com.mfcc.poke.data.controllers;
 
 import com.mfcc.poke.data.client.PokemonClientApi;
 import com.mfcc.poke.data.client.PokemonTypeClientApi;
-import com.mfcc.poke.data.model.Pokemon;
-import com.mfcc.poke.data.model.PokemonStats;
-import com.mfcc.poke.data.model.PokemonType;
-import com.mfcc.poke.data.model.ResultPokemon;
+import com.mfcc.poke.data.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,26 +11,18 @@ import java.util.Optional;
 public class GenerateDataPokemon {
 
     private Pokemon pokemon;
+    private PokemonWeakness pokemonWeakness;
     private PokemonClientApi pokemonClientApi;
     private PokemonTypeClientApi pokemonTypeClientApi;
 
-    /*
-       public GenerateDataPokemon(Pokemon pokemon, PokemonClientApi pokemonClientApi,
-                               PokemonSpeciesClientApi pokemonSpeciesClientApi,
-                               pokemonTypeClientApi pokemonTypeClientApi){
-        this.pokemon = pokemon;
-        this.pokemonClientApi = pokemonClientApi;
-        this.pokemonSpeciesClientApi = pokemonSpeciesClientApi;
-        this.pokemonTypeClientApi = pokemonTypeClientApi;
-    }
-    * */
+
     public GenerateDataPokemon(Pokemon pokemon, PokemonClientApi pokemonClientApi){
         this.pokemon = pokemon;
         this.pokemonClientApi = pokemonClientApi;
     }
 
-    public GenerateDataPokemon(Pokemon pokemon, PokemonTypeClientApi pokemonTypeClientApi){
-        this.pokemon = pokemon;
+    public GenerateDataPokemon(PokemonWeakness pokemonWeakness, PokemonTypeClientApi pokemonTypeClientApi){
+        this.pokemonWeakness = pokemonWeakness;
         this.pokemonTypeClientApi = pokemonTypeClientApi;
     }
 
@@ -65,6 +54,37 @@ public class GenerateDataPokemon {
 
 
             resultPokemonBuilder.stats(basePoint);
+
+
+
+
+            List<String> weaknessPokemon = new ArrayList<>();
+
+            if (pokemonWeakness != null && pokemonWeakness.getDouble_damage_from() != null) {
+                for (PokemonWeakness.Double_damage_from weaknessName : pokemonWeakness.getDouble_damage_from()) {
+                    String weakList = weaknessName.getName();
+
+                    if (weakList != null) {
+                        weaknessPokemon.add(weakList);
+                    }
+                }
+            }
+                resultPokemonBuilder.double_damage_from(weaknessPokemon);
+/*
+            List<String> weaknessPokemon = new ArrayList<>();
+            for (PokemonWeakness.Double_damage_from weaknessName : pokemonWeakness.getDouble_damage_from()) {
+                String weakList = weaknessName.getName();
+
+                if (weakList != null) {
+                    weaknessPokemon.add(weakList);
+                }
+            }
+
+            resultPokemonBuilder.double_damage_from(weaknessPokemon);
+            */
+
+
+
 
             System.out.println(resultPokemonBuilder);
             return Optional.of(resultPokemonBuilder.build());

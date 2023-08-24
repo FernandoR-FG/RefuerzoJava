@@ -33,7 +33,8 @@ public class Pokemon {
     private int weight;
     private List<Types> types;
     private List<Stats> stats;
-    private List<BasePoint> basePoints;
+    private List<PokemonWeakness> double_damage_from;
+
 
     @Builder
     @Getter
@@ -50,16 +51,7 @@ public class Pokemon {
     }
 
 
-    @Builder
-    @Getter
-    public static class BasePoint {
-        private int hp;
-        private int attack;
-        private String defense;
-        private String specialAttack;
-        private String specialDefense;
-        private int speed;
-    }
+
 
 }
 

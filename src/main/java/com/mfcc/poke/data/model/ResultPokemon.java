@@ -13,6 +13,7 @@ public class ResultPokemon {
     private int weight;
     private List<String> type;
     private List<String> stats;
+    private List<String> double_damage_from;
     public static class ResultPokemonBuilder{
         @Override
         public String toString() {
@@ -21,7 +22,7 @@ public class ResultPokemon {
                     "\nHeight: " + height + " m" +
                     "\nWeight: " + weight + " kg" +
                     "\nType: " + type +
-                    "\nWeaknesses: " + type.get(0)+
+                    "\nWeaknesses: " + double_damage_from+
                     "\nBase Point: " + ' '+
                     "\n\t\tHp: " + stats.get(0)+
                     "\n\t\tAttack: " +  stats.get(1)+
